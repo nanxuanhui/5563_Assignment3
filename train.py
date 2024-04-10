@@ -17,5 +17,5 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 # epochs——The maximum number of iterations in the stochastic gradient descent method, the default is 5. For large corpus, this value can be increased
 # alpha – initial step size for iterations in stochastic gradient descent. It is marked as η in the algorithm principle, and the default is 0.025.
 # min_alpha - Since the algorithm supports gradually reducing the step size during the iteration process, min_alpha gives the minimum iteration step value.
-model = Word2Vec(sentences, vector_size=300, window=5, epochs=10)
-model.save('word2vec.model')
+model = Word2Vec(sentences, vector_size=40, window=5, epochs=500)
+model.save('word2vec8.model')
