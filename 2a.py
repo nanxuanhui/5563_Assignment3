@@ -4,26 +4,26 @@ from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 from gensim.models import Word2Vec
 
-# 在进行任何绘图之前设置Matplotlib以支持中文字符
+# Set up Matplotlib to support Chinese characters before doing any plotting
 plt.rcParams['font.family'] = 'Arial Unicode MS'
-plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+plt.rcParams['axes.unicode_minus'] = False  # Used to display negative signs normally
 
-
-# 加载模型
+# Load model
 glove_input_file = '/Users/nanxuan/Desktop/5563/Assignment3/chinese_wiki_embeding20000.txt'
 word2vec_model = KeyedVectors.load_word2vec_format('/Users/nanxuan/Desktop/5563/Assignment3/baike_26g_news_13g_novel_229g.bin', binary=True)
 glove_model = KeyedVectors.load_word2vec_format(glove_input_file, binary=False, no_header=True)
-my_word2vec_model = Word2Vec.load("/Users/nanxuan/Desktop/5563/Assignment3/word2vec3.model").wv
+model = Word2Vec.load("/Users/nanxuan/Desktop/5563/Assignment3/word2vec3.model")
+my_word2vec_model = model.wv
 
-# 选择单词
+# choose word
 words = ['清华大学', '爱因斯坦', '加拿大']
 
-# 获取嵌入
+# Get embed
 word2vec_embeddings = np.array([word2vec_model[word] for word in words if word in word2vec_model])
 glove_embeddings = np.array([glove_model[word] for word in words if word in glove_model])
 my_word2vec_embeddings = np.array([my_word2vec_model[word] for word in words if word in my_word2vec_model])
 
-# 定义一个函数来执行t-SNE并绘图
+# Define a function to perform t-SNE and plot
 def tsne_transform(embeddings, title, ax):
     if len(embeddings) > 1:
         tsne = TSNE(n_components=2, perplexity=min(len(embeddings)-1, 30))
@@ -35,7 +35,7 @@ def tsne_transform(embeddings, title, ax):
     else:
         print(f"Not enough words for {title} model.")
 
-# 可视化
+# Visualization
 fig, axs = plt.subplots(1, 3, figsize=(18, 6))
 tsne_transform(word2vec_embeddings, 'Word2Vec', axs[0])
 tsne_transform(glove_embeddings, 'GloVe', axs[1])

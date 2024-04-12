@@ -19,3 +19,4 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 # min_alpha - Since the algorithm supports gradually reducing the step size during the iteration process, min_alpha gives the minimum iteration step value.
 model = Word2Vec(sentences, vector_size=40, window=5, epochs=500)
 model.save('word2vec8.model')
+
