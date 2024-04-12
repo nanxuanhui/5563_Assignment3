@@ -1,2 +1,5 @@
 # 5563_Assignment3
-5563
+
+Dataset: THUC and Sougou news
+Stopwords: from Sichuan University
+
