@@ -126,6 +126,11 @@ This detailed approach to selecting and preprocessing your datasets should provi
 1. Hugging Face. (n.d.). *Sogou News dataset*. Retrieved from https://huggingface.co/datasets/sogou_news
 2. Li, X., & Wang, W. (2017). *THUCNews: A Large-Scale News Corpus for Chinese*. Tsinghua University. Available at: https://paperswithcode.com/dataset/thucnews
 3. Sichuan University. (2017). *Chinese stopwords list*. Journal of Information Technology, 3(09). Retrieved from https://manu44.magtech.com.cn/Jwk_infotech_wk3/EN/10.11925/infotech.2096-3467.2017.03.09
+4. Mikolov, T., Chen, K., Corrado, G., & Dean, J. (2013). Efficient Estimation of Word Representations in Vector Space. Proceedings of the International Conference on Learning Representations (ICLR).
+5. Pennington, J., Socher, R., & Manning, C. D. (2014). GloVe: Global Vectors for Word Representation. Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP), 1532-1543.
+6. Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT), Volume 1, 4171-4186.
+7. Lenci, A. (2018). Distributional Models of Word Meaning. Annual Review of Linguistics, 4, 151-171.
+Format: Lenci, A. (2018). Distributional models of word meaning. Annual Review of Linguistics, 4, 151-171.
 
 ## Appendices
 - Any supplementary material (code snippets, additional data visualizations).
