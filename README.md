@@ -69,13 +69,19 @@ The preprocessing steps were designed to refine the textual data into a format t
 
 This detailed approach to selecting and preprocessing your datasets should provide a solid basis for training your Word2Vec model and demonstrate thoroughness in your methodological execution for your NLP assignment.
 
-## 1.3 Model Training
-  - Configuration of the Word2Vec model (architecture, window size, vector size, etc.).
-  - Training process and parameters.
+### 1.3 Model Training
 
-## 1.4 Evaluation of Embedding
-  - Qualitative analysis (nearest neighbors, analogy tasks).
-  - Quantitative metrics (if applicable).
+The training process began with the loading and preprocessing of a text corpus, specifically chosen to reflect the Chinese language domain, which is vital for the relevancy of the embeddings. The corpus is stored at the local path '/Users/nanxuan/Desktop/5563/Assignment3/combined_data/Data.txt', and consists of lines of text that are paired to form sentence tuples. These tuples are subsequently converted into a pandas DataFrame with two columns, each representing one sentence of the pair. This format is particularly useful for later stages where embeddings need to be generated and compared for each sentence independently.
+
+Two different embedding models were used in this project: BERT and GloVe. The BERT model (`bert-base-chinese`), along with its tokenizer, was loaded using the Hugging Face `transformers` library. This model is specifically pretrained to understand and generate embeddings for the Chinese language, making it suitable for our dataset.
+
+Simultaneously, a GloVe model was loaded from a pre-existing file containing word embeddings trained on a Chinese Wikipedia dataset. This file, located at '/Users/nanxuan/Desktop/5563/Assignment3/chinese_wiki_embeding20000.txt', contains 20,000 vectors and does not have a header, requiring specific loading parameters (`binary=False, no_header=True`) using the `gensim.models.KeyedVectors` module.
+
+For GloVe embeddings, a function `glove_sentence_embedding` was defined to compute the mean embedding vector for each sentence. This function checks the existence of each word in the GloVe model and averages the embeddings of the words present. In contrast, the BERT embeddings were computed using the `bert_sentence_embedding` function. This function tokenizes the input sentence, processes it through the BERT model, and calculates a weighted average of the output embeddings based on the attention mask. This step ensures that padding tokens do not affect the resultant sentence embedding.
+
+After generating embeddings, another critical component of our analysis involved calculating the cosine similarity between the embeddings of sentence pairs for both models. A custom function `calculate_similarity` was utilized to compute this metric. This function reshapes the embedding vectors and calculates the cosine similarity between them. The similarity scores for each sentence pair are stored in the DataFrame and are crucial for comparative analysis between the performance of GloVe and BERT embeddings.
+
+The initial results of the embedding processes and similarity calculations were previewed by printing the first few entries of the DataFrame. This step was essential to verify the correct functioning of the data processing and embedding pipeline.
 
 ## Section 2: Comparison of Embeddings
 - **2.1 Semantic Distance Calculation and Visualization**
