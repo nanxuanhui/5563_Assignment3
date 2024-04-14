@@ -6,6 +6,33 @@
 
 ## Table of Contents
 
+- [Group Members](#group-members)
+- [Abstract](#abstract)
+- [Introduction](#introduction)
+- [Results](#results)
+- [Section 1: Training Custom Word2Vec Embedding](#section-1-training-custom-word2vec-embedding)
+  - [1.1: Dataset Selection](#11-dataset-selection)
+  - [1.2: Preprocessing](#12-preprocessing)
+  - [1.3 Model Training](#13-model-training)
+- [Section 2: Comparison of Embeddings](#section-2-comparison-of-embeddings)
+   - [2.1 Semantic Distance Calculation and Visualization](#21-semantic-distance-calculation-and-visualization)
+      - [2.1.1 Methodology](#211-methodology)
+      - [2.1.2 Results](#212-results)
+   - [2.2 Classification Task](#22-classification-task)
+      - [2.2.1 Task Description](#221-task-description)
+      - [2.2.2 Model Configuration](#222-model-configuration)
+      - [2.2.3 Results and Discussion](#223-results-and-discussion)
+- [Section 3: Sentence-level Comparison of GloVe and BERT](#section-3-sentence-level-comparison-of-glove-and-bert)
+   - [3.1 Task Design](#31-task-design)
+   - [3.2 Implementation](#32-implementation)
+   - [3.3 Results and Analysis](#33-results-and-analysis)
+- [Section 4: Proposal for Future NLP Research Projects](#section-4-proposal-for-future-nlp-research-projects)
+   - [4.1 Research Idea #1: NewsBacklight](#41-research-idea-1-newsbacklight)
+   - [4.2 Research Idea #2: LexiChron](#42-research-idea-2-lexichron)
+- [Conclusion](#conclusion)
+- [References](#references)
+- [Appendices](#appendices)
+
 ## Group Members
 
 - Hui Jin
