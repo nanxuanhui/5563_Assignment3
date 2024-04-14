@@ -21,8 +21,10 @@
    - [4.1 Research Idea #1: NewsBacklight](#41-research-idea-1-newsbacklight)
    - [4.2 Research Idea #2: LexiChron](#42-research-idea-2-lexichron)
 - [Conclusion](#conclusion)
+   - [Key Findings](#key-findings)
+   - [Learning Outcomes](#learning-outcomes)
+   - [Implications for Future NLP Applications and Research](#implications-for-future-nlp-applications-and-research)
 - [References](#references)
-- [Appendices](#appendices)
 
 ## Group Members
 
@@ -153,9 +155,36 @@ The project will involve collecting social media posts over a defined period via
 LexiChron will serve as a valuable resource for linguists, sociologists, and cultural historians interested in the dynamics of language and culture. Furthermore, it will aid marketers and policymakers by providing insights into public sentiment and cultural trends, facilitating informed decisions based on societal shifts.
 
 ## Conclusion
-- Summary of key findings from the comparisons of embeddings.
-- Reflections on the learning outcomes of the assignment.
-- Potential implications for future NLP applications and research.
+
+This assignment provided a comprehensive exploration of different word and sentence embedding models, specifically focusing on Word2Vec, GloVe, and BERT. Through various experiments and tasks, we have gained valuable insights into the behavior and performance of these models in different contexts.
+
+### Key Findings
+
+Our findings demonstrated that BERT embeddings generally offer superior performance in capturing contextual nuances compared to both Word2Vec and GloVe embeddings. This was evident from the semantic distance calculations and the sentence-level sentiment analysis task, where BERT consistently showed higher semantic similarities and better context understanding. This suggests that for tasks requiring a deep understanding of context, dynamic embeddings like those offered by BERT are more effective than static embeddings.
+
+The Word2Vec embeddings, while less effective in some contexts compared to pre-trained models, still performed reasonably well in our classification task. This highlights the potential of custom-trained embeddings in specific applications, especially when tailored to the characteristics of the dataset at hand, such as language domain and text style.
+
+### Learning Outcomes
+
+Throughout the process of training our own Word2Vec model, comparing different embeddings, and designing NLP tasks, we have enhanced our understanding of:
+
+- The importance of dataset selection and preprocessing in building effective language models.
+- How different embedding models can be leveraged depending on the requirements of specific NLP tasks.
+- The practical applications of these models in real-world scenarios, such as text classification and sentiment analysis.
+
+This assignment also provided us with practical experience in implementing and fine-tuning deep learning models, which is essential for our future careers in data science and NLP.
+
+### Implications for Future NLP Applications and Research
+
+The insights gained from this assignment are significant for the advancement of NLP applications, particularly in improving the efficiency and accuracy of language models in various domains. Our exploration suggests several areas for future research, including:
+
+- Further exploration of hybrid models that combine the strengths of static and dynamic embeddings could potentially lead to better performance across a broader range of tasks.
+- Investigating the scalability of custom-trained embeddings in larger, more diverse datasets.
+- Developing more sophisticated methods for embedding evaluation, beyond semantic similarity, to include more nuanced linguistic properties like syntax and pragmatics.
+
+Additionally, our proposed research projects, NewsBacklight and LexiChron, reflect the growing need for NLP systems that can provide more contextual and temporal insights into data. These projects could help pave the way for new types of NLP applications that are more interactive, user-focused, and integrated into everyday technology.
+
+In conclusion, this assignment has not only reinforced our theoretical knowledge of NLP but has also sharpened our practical skills in applying these technologies to solve complex problems. The experiences gained here will undoubtedly influence our approach to future NLP challenges and research endeavors.
 
 ## References
 
@@ -167,6 +196,3 @@ LexiChron will serve as a valuable resource for linguists, sociologists, and cul
 6. Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT), Volume 1, 4171-4186.
 7. Lenci, A. (2018). Distributional Models of Word Meaning. Annual Review of Linguistics, 4, 151-171.
 Format: Lenci, A. (2018). Distributional models of word meaning. Annual Review of Linguistics, 4, 151-171.
-
-## Appendices
-- Any supplementary material (code snippets, additional data visualizations).
