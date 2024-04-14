@@ -113,14 +113,26 @@ The initial results of the embedding processes and similarity calculations were 
   - Discussion on the strengths and weaknesses of each embedding type at the sentence level.
 
 ## Section 4: Proposal for Future NLP Research Projects
-- **4.1 Research Idea #1**
-  - Detailed description of the first research idea.
-  - Objectives and expected outcomes.
-  - Methodology and tools/technologies required.
-- **4.2 Research Idea #2**
-  - Detailed description of the second research idea.
-  - Explanation of its relevance and potential impact on the field.
-  - Proposed methods and necessary resources.
+
+### 4.1 Research Idea #1: NewsBacklight
+
+NewsBacklight aims to provide a deeper contextual understanding of current events by linking them with relevant historical newspaper articles. 
+
+This project introduces a chatbot that assists users by suggesting archival articles that provide historical perspectives or background related to their current readings. The chatbot will integrate with news platforms using natural language processing techniques to analyze the content that the user is currently viewing, search for related articles from a historical archive, and present these suggestions to the reader.
+
+The system will employ topic modeling techniques such as Latent Dirichlet Allocation (LDA) and Non-negative Matrix Factorization (NMF) alongside semantic similarity assessments using cosine similarity of TF-IDF vectors to accurately match current articles with historical writings. The chatbot interface will be developed for integration with news websites or applications, possibly using APIs or web scraping techniques to collect current articles and accessing a database for archived content.
+
+By providing historical insights, NewsBacklight not only enhances readers' understanding of current events but also drives engagement with archival content, potentially increasing traffic for news archives and encouraging deeper media consumption.
+
+### 4.2 Research Idea #2: LexiChron
+
+LexiChron is designed to track the evolution of language and cultural trends over time through the analysis of social media data.
+
+LexiChron will analyze the frequency and context of specific terms or phrases across various social media platforms to provide insights into language evolution and cultural conversations. This tool aims to highlight how new words gain popularity or how public discourse shifts in response to global events, using historical social media data.
+
+The project will involve collecting social media posts over a defined period via platform APIs, such as Twitter's API. It will utilize natural language processing techniques, including sentiment analysis to assess changes in public mood and perception, and word embedding models like GloVe or BERT to study semantic shifts in language. Additionally, LexiChron will feature a visual dashboard that allows users to interactively explore data by selecting specific words, time frames, or topics.
+
+LexiChron will serve as a valuable resource for linguists, sociologists, and cultural historians interested in the dynamics of language and culture. Furthermore, it will aid marketers and policymakers by providing insights into public sentiment and cultural trends, facilitating informed decisions based on societal shifts.
 
 ## Conclusion
 - Summary of key findings from the comparisons of embeddings.
