@@ -32,6 +32,8 @@ with open(news_file_path, 'r', encoding='gb18030') as file:
             with open(out_file_path, 'w', encoding='utf-8') as out_file:
                 out_file.write(''.join(news))
             news = []  # Clear saved news content and prepare for the next batch
+
+
             print(f"Processed and saved {i} news items to file: {out_file_path}")
         i += 1
     if news:  # Make sure the last batch of data is also written to the file

@@ -87,18 +87,18 @@ pretrained_w2v_path = '/Users/nanxuan/Desktop/5563/Assignment3/baike_26g_news_13
 pretrained_glove_path = '/Users/nanxuan/Desktop/5563/Assignment3/chinese_wiki_embeding20000.txt'
 pretrained_w2v = KeyedVectors.load_word2vec_format(pretrained_w2v_path, binary=True)
 pretrained_glove = KeyedVectors.load_word2vec_format(pretrained_glove_path, binary=False, no_header=True)
-#model = Word2Vec.load("/Users/nanxuan/Desktop/5563/Assignment3/word2vec3.model")
-#my_word2vec_model = model.wv
+model = Word2Vec.load("/Users/nanxuan/Desktop/5563/Assignment3/word2vec3.model")
+my_word2vec_model = model.wv
 
 # Get embedding matrices
 print("Getting embedding matrices...")
 w2v_embedding_matrix = get_embedding_matrix(word_index, pretrained_w2v, 128, False)
 glove_embedding_matrix = get_embedding_matrix(word_index, pretrained_glove, 300, False)
-#self_trained_w2v_matrix = get_embedding_matrix(word_index, my_word2vec_model, 40, True)
+self_trained_w2v_matrix = get_embedding_matrix(word_index, my_word2vec_model, 40, True)
 print("Shape of Word2Vec embedding matrix:", w2v_embedding_matrix.shape)
 
 # Function to build and train the model
-def build_and_train_model(X_train, y_train, X_test, y_test, embedding_matrix):
+def build_and_train_model_1(X_train, y_train, X_test, y_test, embedding_matrix):
     embedding_dim = embedding_matrix.shape[1]
     model = Sequential()
     model.add(
@@ -114,6 +114,37 @@ def build_and_train_model(X_train, y_train, X_test, y_test, embedding_matrix):
     model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=20, batch_size=64, callbacks=[early_stopping])
     return model
 
+def build_and_train_model_2(X_train, y_train, X_test, y_test, embedding_matrix):
+    embedding_dim = embedding_matrix.shape[1]
+    model = Sequential()
+    model.add(
+        Embedding(input_dim=embedding_matrix.shape[0], output_dim=300, weights=[embedding_matrix], input_length=200,
+                  trainable=True))
+    model.add(Bidirectional(LSTM(100, return_sequences=True)))
+    model.add(Dropout(0.5))
+    model.add(Bidirectional(LSTM(50)))
+    model.add(Dropout(0.3))
+    model.add(Dense(output_units, activation='softmax'))
+    early_stopping = EarlyStopping(monitor='val_loss', patience=3)
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+    model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=20, batch_size=64, callbacks=[early_stopping])
+    return model
+
+def build_and_train_model_3(X_train, y_train, X_test, y_test, embedding_matrix):
+    embedding_dim = embedding_matrix.shape[1]
+    model = Sequential()
+    model.add(
+        Embedding(input_dim=embedding_matrix.shape[0], output_dim=40, weights=[embedding_matrix], input_length=200,
+                  trainable=True))
+    model.add(Bidirectional(LSTM(100, return_sequences=True)))
+    model.add(Dropout(0.5))
+    model.add(Bidirectional(LSTM(50)))
+    model.add(Dropout(0.3))
+    model.add(Dense(output_units, activation='softmax'))
+    early_stopping = EarlyStopping(monitor='val_loss', patience=3)
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+    model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=20, batch_size=64, callbacks=[early_stopping])
+    return model
 
 def print_model_performance(model, X_train, y_train, X_test, y_test):
     # Evaluate the model on training and test data
@@ -126,16 +157,16 @@ def print_model_performance(model, X_train, y_train, X_test, y_test):
 
 
 # Train and evaluate models with different embeddings
-#print("Training with self-trained Word2Vec embeddings...")
-#model_self_w2v = build_and_train_model(X_train, y_train, X_test, y_test, self_trained_w2v_matrix)
-#print_model_performance(model_self_w2v, X_train, y_train, X_test, y_test)
-
 # Train the Word2Vec model and print its performance
-model_w2v = build_and_train_model(X_train, y_train, X_test, y_test, w2v_embedding_matrix)
+model_w2v = build_and_train_model_1(X_train, y_train, X_test, y_test, w2v_embedding_matrix)
 print("Results for Word2Vec model:")
 print_model_performance(model_w2v, X_train, y_train, X_test, y_test)
 
 # Train the GloVe model and print its performance
-model_glove = build_and_train_model(X_train, y_train, X_test, y_test, glove_embedding_matrix)
+model_glove = build_and_train_model_2(X_train, y_train, X_test, y_test, glove_embedding_matrix)
 print("Results for GloVe model:")
 print_model_performance(model_glove, X_train, y_train, X_test, y_test)
+
+print("Training with self-trained Word2Vec embeddings...")
+model_self_w2v = build_and_train_model_3(X_train, y_train, X_test, y_test, self_trained_w2v_matrix)
+print_model_performance(model_self_w2v, X_train, y_train, X_test, y_test)
